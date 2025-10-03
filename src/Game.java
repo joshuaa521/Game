@@ -34,6 +34,18 @@ public class Game {
     /** Returns the score earned in the most recently played game, as described in part (a) */
     public int getScore()
     {
+        int points = 0;
+        if (levelOne.goalReached())
+        {
+            points += levelOne.getPoints();
+            if (levelTwo.goalReached()) {
+                points += levelTwo.getPoints();
+                if (levelThree.goalReached()) {
+                    points += levelThree.getPoints();
+                    if (isBonus()) points *= 3;
+                }
+            }
+
 
     }
     /** Simulates the play of num games and returns the highest score earned, as
